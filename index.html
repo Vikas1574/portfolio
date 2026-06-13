@@ -6,24 +6,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Vikas | Technical Lead | Azure AI Engineer | AI-102 | AI-900 | AZ-204 Certified </title>
+<title>
+Technical Lead | Azure AI Engineer | Enterprise Architect
+</title>
 
 <meta name="description"
-content="Technical Lead specializing in Azure AI, Generative AI, Cloud Architecture and Enterprise Software Development">
+content="Technical Lead | Azure AI Engineer | AI-102 | AI-900 | AZ-204 Certified | Enterprise Architect">
 
-<meta name="keywords"
-content="Azure AI Engineer, Technical Lead, Azure OpenAI, Generative AI, .NET, Microservices">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 /* ====================================
    GLOBAL STYLES
 ==================================== */
@@ -32,13 +25,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     --primary:#2563eb;
     --secondary:#3b82f6;
     --accent:#06b6d4;
-
-    --bg:#f8fafc;
-    --card:#ffffff;
-
     --text:#0f172a;
     --muted:#64748b;
-
+    --card:#ffffff;
     --border:#e2e8f0;
 }
 
@@ -51,9 +40,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 body{
     font-family:'Poppins',sans-serif;
-    color:var(--text);
-    line-height:1.8;
-    overflow-x:hidden;
 
     background:linear-gradient(
         -45deg,
@@ -64,7 +50,27 @@ body{
     );
 
     background-size:400% 400%;
+
     animation:gradientBG 15s ease infinite;
+
+    color:var(--text);
+    overflow-x:hidden;
+    line-height:1.8;
+}
+
+@keyframes gradientBG{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
 }
 
 .container{
@@ -77,46 +83,30 @@ section{
     padding:100px 0;
 }
 
-/* ====================================
-   BACKGROUND ANIMATION
-==================================== */
-
-@keyframes gradientBG{
-    0%{
-        background-position:0% 50%;
-    }
-    50%{
-        background-position:100% 50%;
-    }
-    100%{
-        background-position:0% 50%;
-    }
-}
-
-/* ====================================
-   NAVBAR
-==================================== */
-
 header{
+
     position:fixed;
-    top:0;
     width:100%;
+    top:0;
     z-index:1000;
 
     background:rgba(255,255,255,.85);
+
     backdrop-filter:blur(15px);
 
     border-bottom:1px solid var(--border);
 }
 
 nav{
+
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:18px 0;
+    padding:20px 0;
 }
 
 .logo{
+
     font-size:26px;
     font-weight:800;
 
@@ -130,29 +120,28 @@ nav{
     -webkit-text-fill-color:transparent;
 }
 
-.nav-links{
+nav ul{
+
     display:flex;
     gap:25px;
     list-style:none;
 }
 
-.nav-links a{
+nav a{
+
     color:var(--text);
     text-decoration:none;
     font-weight:600;
-    transition:.3s;
 }
 
-.nav-links a:hover{
+nav a:hover{
     color:var(--primary);
 }
 
-/* ====================================
-   HERO SECTION
-==================================== */
-
 .hero{
+
     min-height:100vh;
+
     display:flex;
     align-items:center;
 
@@ -165,6 +154,7 @@ nav{
 }
 
 .hero-content{
+
     display:grid;
     grid-template-columns:2fr 1fr;
     gap:50px;
@@ -172,102 +162,113 @@ nav{
 }
 
 .hero h1{
+
     font-size:4rem;
     line-height:1.1;
-    margin-bottom:15px;
+    margin-bottom:20px;
+}
+
+.hero h2{
+
+    color:var(--primary);
+    margin-bottom:20px;
+}
+
+.hero p{
+
+    color:var(--muted);
+    margin-bottom:30px;
 }
 
 .highlight{
     color:var(--primary);
 }
 
-.hero h2{
-    color:var(--secondary);
-    margin-bottom:20px;
-}
-
-.hero p{
-    color:var(--muted);
-    margin-bottom:25px;
-}
-
 .profile{
+
     width:300px;
     height:300px;
+
     border-radius:50%;
+
     overflow:hidden;
+
     border:5px solid var(--primary);
 
-    box-shadow:
-    0 20px 50px rgba(37,99,235,.20);
-
     animation:float 5s ease-in-out infinite;
+
+    box-shadow:
+    0 20px 50px rgba(37,99,235,.25);
 }
 
 .profile img{
+
     width:100%;
     height:100%;
     object-fit:cover;
 }
 
 @keyframes float{
+
     0%{
         transform:translateY(0);
     }
+
     50%{
         transform:translateY(-15px);
     }
+
     100%{
         transform:translateY(0);
     }
 }
 
-/* ====================================
-   BUTTONS
-==================================== */
-
 .btn{
+
     display:inline-block;
+
     padding:14px 28px;
+
     border-radius:10px;
-    font-weight:600;
+
     text-decoration:none;
-    transition:.3s;
+
+    font-weight:600;
+
     margin-right:10px;
+
+    transition:.3s;
 }
 
 .btn-primary{
+
     background:linear-gradient(
         90deg,
         var(--primary),
         var(--secondary)
     );
-    color:white;
-}
 
-.btn-primary:hover{
-    transform:translateY(-3px);
+    color:white;
 }
 
 .btn-outline{
+
     border:2px solid var(--primary);
+
     color:var(--primary);
 }
 
-.btn-outline:hover{
-    background:var(--primary);
-    color:white;
+.btn:hover{
+    transform:translateY(-3px);
 }
 
-/* ====================================
-   SECTION TITLES
-==================================== */
-
 .section-title{
+
     text-align:center;
+
     font-size:2.8rem;
+
     margin-bottom:50px;
-    font-weight:700;
 
     background:linear-gradient(
         90deg,
@@ -279,34 +280,17 @@ nav{
     -webkit-text-fill-color:transparent;
 }
 
-/* ====================================
-   GRID
-==================================== */
-
-.grid{
-    display:grid;
-    grid-template-columns:
-    repeat(auto-fit,minmax(300px,1fr));
-
-    gap:25px;
-}
-
-/* ====================================
-   CARDS
-==================================== */
-
-.card,
-.stat-card{
+.card{
 
     background:rgba(255,255,255,.85);
 
-    backdrop-filter:blur(12px);
-
-    border:1px solid rgba(37,99,235,.08);
+    backdrop-filter:blur(15px);
 
     border-radius:20px;
 
     padding:30px;
+
+    border:1px solid rgba(37,99,235,.08);
 
     box-shadow:
     0 10px 30px rgba(0,0,0,.05);
@@ -314,227 +298,69 @@ nav{
     transition:.4s;
 }
 
-.card:hover,
-.stat-card:hover{
+.card:hover{
 
-    transform:
-    translateY(-8px);
+    transform:translateY(-10px);
 
     box-shadow:
     0 20px 40px rgba(37,99,235,.15);
 }
 
-/* ====================================
-   STATS
-==================================== */
+.grid{
 
-.stats{
     display:grid;
+
     grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
+    repeat(auto-fit,minmax(280px,1fr));
 
     gap:25px;
 }
 
 .stat-card{
+
     text-align:center;
 }
 
 .stat-card h3{
-    font-size:2.8rem;
+
+    font-size:2.5rem;
     color:var(--primary);
 }
-
-/* ====================================
-   SKILLS
-==================================== */
-
-.skill{
-
-    display:inline-block;
-
-    padding:10px 16px;
-
-    margin:6px;
-
-    border-radius:30px;
-
-    background:white;
-
-    border:1px solid #dbeafe;
-
-    transition:.3s;
-}
-
-.skill:hover{
-
-    background:var(--primary);
-
-    color:white;
-
-    transform:translateY(-3px);
-}
-
-/* ====================================
-   TIMELINE
-==================================== */
-
-.timeline{
-    position:relative;
-    padding-left:40px;
-}
-
-.timeline::before{
-    content:'';
-    position:absolute;
-    left:10px;
-    top:0;
-    bottom:0;
-    width:4px;
-
-    background:linear-gradient(
-        180deg,
-        var(--primary),
-        var(--accent)
-    );
-}
-
-.timeline-item{
-    position:relative;
-    margin-bottom:30px;
-}
-
-.timeline-item::before{
-
-    content:'';
-
-    position:absolute;
-
-    left:-38px;
-    top:10px;
-
-    width:18px;
-    height:18px;
-
-    border-radius:50%;
-
-    background:var(--accent);
-
-    border:4px solid var(--primary);
-}
-
-/* ====================================
-   EDUCATION
-==================================== */
-
-
-#education .card{
-    height:100%;
-}
-
-#education .card h3{
-    color:var(--primary);
-    margin-bottom:10px;
-}
-
-.section-subtitle{
-    text-align:center;
-    max-width:900px;
-    margin:0 auto 50px;
-    color:var(--muted);
-    font-size:1.05rem;
-}
-
-.education-stream{
-    color:var(--primary);
-    font-weight:600;
-    margin:10px 0 15px;
-    font-size:1rem;
-}
-   
-/* ====================================
-   CERTIFICATIONS
-==================================== */
-
-#certifications .card{
-    text-align:center;
-    font-weight:600;
-}
-
-/* ====================================
-   CONTACT
-==================================== */
-
-#contact a{
-    color:var(--primary);
-    text-decoration:none;
-}
-
-#contact a:hover{
-    text-decoration:underline;
-}
-
-/* ====================================
-   FOOTER
-==================================== */
-
-footer{
-    text-align:center;
-    padding:40px;
-    border-top:1px solid var(--border);
-    color:var(--muted);
-}
-
-/* ====================================
-   SCROLL ANIMATION
-==================================== */
 
 .fade-up{
+
     opacity:0;
     transform:translateY(40px);
-    transition:all 1s ease;
+    transition:1s;
 }
 
 .fade-up.show{
+
     opacity:1;
     transform:translateY(0);
 }
 
-/* ====================================
-   RESPONSIVE
-==================================== */
-
 @media(max-width:768px){
 
-    .hero-content{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
+.hero-content{
+grid-template-columns:1fr;
+text-align:center;
+}
 
-    .hero h1{
-        font-size:2.5rem;
-    }
+.hero h1{
+font-size:2.5rem;
+}
 
-    .profile{
-        width:220px;
-        height:220px;
-        margin:auto;
-    }
+.profile{
+width:220px;
+height:220px;
+margin:auto;
+}
 
-    .nav-links{
-        display:none;
-    }
-
-    .section-title{
-        font-size:2rem;
-    }
-
-    .grid{
-        grid-template-columns:1fr;
-    }
-  }
-
-   
+nav ul{
+display:none;
+}
+}
 
 </style>
 
@@ -549,29 +375,27 @@ footer{
 <nav>
 
 <div class="logo">
-Portfolio
+Quantum Architect
 </div>
 
-<ul class="nav-links">
+<ul>
 
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
 <li><a href="#experience">Experience</a></li>
 <li><a href="#projects">Projects</a></li>
-<li><a href="#certifications">Certifications</a></li>
+<li><a href="#education">Education</a></li>
 <li><a href="#contact">Contact</a></li>
 
 </ul>
-
-<div class="menu-btn">
-☰
-</div>
 
 </nav>
 
 </div>
 
 </header>
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -582,69 +406,45 @@ Portfolio
 <div>
 
 <h1>
-Hi, I'm
-<span class="highlight">Vikas </span>
+
+Building Intelligent
+
+<span class="highlight">
+Enterprise Solutions
+</span>
+
 </h1>
 
 <h2>
-Technical Lead | Azure AI Engineer | AI-102 | AI-900 | AZ-204 Certified
+Technical Lead | Azure AI Engineer | Enterprise Architect
 </h2>
 
 <p>
-Technical Lead with 8+ years of experience in designing, architecting, and delivering enterprise-scale cloud-native applications and AI-powered solutions. Specialized in Azure AI, Generative AI, Azure OpenAI, .NET, Microservices, and Enterprise Architecture. Microsoft Certified Azure AI Engineer (AI-102), Azure AI Fundamentals (AI-900), and Azure Developer Associate (AZ-204). Proven expertise in leading high-performing engineering teams, driving cloud transformation initiatives, implementing scalable distributed systems, and delivering business-critical solutions that accelerate innovation and digital transformation.
+
+Technical leader with 8+ years of experience in cloud-native applications,
+Artificial Intelligence, Generative AI, Microservices, Azure Cloud,
+and Enterprise Architecture.
+
 </p>
 
-<div class="hero-buttons">
-
-<a href="https://www.linkedin.com/in/vikas-90124017b"
-target="_blank"
-class="btn btn-outline">
-LinkedIn
+<a href="#contact" class="btn btn-primary">
+Contact Me
 </a>
 
-</div>
+<a href="#projects" class="btn btn-outline">
+View Projects
+</a>
 
 </div>
 
 <div>
 
+<div class="profile">
+
+<img src="profile.jpg" alt="Profile">
 
 </div>
 
-</div>
-
-</div>
-
-</section>
-
-  <!-- ========================= -->
-<!-- STATS SECTION -->
-<!-- ========================= -->
-
-<section>
-
-<div class="container">
-
-<div class="stats">
-
-<div class="stat-card fade-up">
-<h3>8+</h3>
-<p>Years Experience</p>
-</div>
-
-<div class="stat-card fade-up">
-<h3>20+</h3>
-<p>Projects Delivered</p>
-</div>
-
-<div class="stat-card fade-up">
-<h3>8+</h3>
-<p>Professional Certifications</p>
-</div>
-
-<div class="stat-card fade-up">
-<h3>4+</h3>
-<p>Industry Awards</p>
 </div>
 
 </div>
@@ -653,32 +453,30 @@ LinkedIn
 
 </section>
 
-<!-- ========================= -->
 <!-- ABOUT -->
-<!-- ========================= -->
 
 <section id="about">
 
 <div class="container">
 
 <h2 class="section-title fade-up">
+
 About Me
+
 </h2>
 
 <div class="card fade-up">
 
 <p>
 
-Technical Lead with 8+ years of experience designing and delivering
-enterprise-scale cloud-native applications, AI-powered solutions,
-distributed systems, and microservices architectures.
+Experienced Technical Lead specializing in Azure Cloud,
+Artificial Intelligence, Generative AI, Microservices,
+Enterprise Architecture, and modern software engineering.
 
-Specialized in Azure Cloud, Generative AI, Azure OpenAI,
-Enterprise Architecture, Agile Delivery, and Modern Software Engineering.
-
-Experienced in leading engineering teams, driving cloud transformation,
-mentoring developers, conducting technical interviews, and delivering
-business-critical enterprise solutions.
+Proven track record of leading engineering teams,
+mentoring developers, architecting scalable solutions,
+and delivering mission-critical enterprise platforms
+that drive digital transformation and business value.
 
 </p>
 
@@ -688,228 +486,106 @@ business-critical enterprise solutions.
 
 </section>
 
+<!-- CAREER HIGHLIGHTS -->
 
-<!-- ========================= -->
-<!-- EDUCATION -->
-<!-- ========================= -->
+<section>
 
-<section id="education">
+<div class="container">
 
-    <div class="container">
+<h2 class="section-title fade-up">
 
-        <h2 class="section-title fade-up">
-            Education
-        </h2>
+Career Highlights
 
-        <p class="section-subtitle fade-up">
-            Strong academic foundation in Electronics & Communication Engineering,
-            complemented by advanced research in Artificial Intelligence,
-            Deep Learning, Intelligent Systems, and modern engineering technologies.
-        </p>
+</h2>
 
-        <div class="grid">
+<div class="grid">
 
-            <!-- M.Tech -->
+<div class="card stat-card fade-up">
 
-            <div class="card fade-up">
+<h3>8+</h3>
 
-                <h3>🎓 Master of Technology (M.Tech)</h3>
+<p>Years Experience</p>
 
-                <p class="education-stream">
-                    Electronics & Communication Engineering
-                </p>
+</div>
 
-                <p>
-                    Specialized in advanced communication systems, signal processing,
-                    Artificial Neural Networks (ANN), Deep Learning, intelligent
-                    computing, pattern recognition, optimization techniques, and
-                    emerging technologies. Conducted research-driven projects focused
-                    on intelligent systems and computational approaches for solving
-                    real-world engineering challenges. This academic experience
-                    established a strong foundation for expertise in Artificial
-                    Intelligence, Generative AI, Machine Learning, and cloud-based
-                    intelligent solutions.
-                </p>
+<div class="card stat-card fade-up">
 
-            </div>
+<h3>20+</h3>
 
-            <!-- B.Tech -->
+<p>Enterprise Projects</p>
 
-            <div class="card fade-up">
+</div>
 
-                <h3>🎓 Bachelor of Technology (B.Tech)</h3>
+<div class="card stat-card fade-up">
 
-                <p class="education-stream">
-                    Electronics & Communication Engineering
-                </p>
+<h3>5+</h3>
 
-                <p>
-                    Acquired comprehensive knowledge in electronics, communication
-                    systems, digital signal processing, embedded systems,
-                    microprocessors, networking, control systems, and software
-                    engineering. Participated in technical projects, innovation
-                    initiatives, and practical laboratory work, developing strong
-                    analytical, problem-solving, and engineering design skills.
-                </p>
+<p>Professional Certifications</p>
 
-            </div>
+</div>
 
-            <!-- Diploma -->
+<div class="card stat-card fade-up">
 
-            <div class="card fade-up">
+<h3>100+</h3>
 
-                <h3>🎓 Diploma in Engineering</h3>
+<p>Technical Interviews & Mentoring Sessions</p>
 
-                <p class="education-stream">
-                    Electronics & Communication Engineering
-                </p>
+</div>
 
-                <p>
-                    Developed strong practical engineering skills through hands-on
-                    training in electronic circuits, communication technologies,
-                    instrumentation, microcontroller systems, industrial automation,
-                    and troubleshooting techniques. Gained valuable exposure to
-                    real-world engineering applications through laboratory exercises
-                    and technical projects.
-                </p>
+</div>
 
-            </div>
-
-            <!-- Secondary Education -->
-
-            <div class="card fade-up">
-
-                <h3>🏫 Secondary Education (10th Grade)</h3>
-
-                <p class="education-stream">
-                    Academic Foundation
-                </p>
-
-                <p>
-                    Established a strong foundation in mathematics, science,
-                    logical reasoning, analytical thinking, and problem-solving.
-                    These core academic principles provided the basis for pursuing
-                    higher education in engineering and technology and contributed
-                    significantly to future professional growth.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
-<!-- ========================= -->
-<!-- SKILLS -->
-<!-- ========================= -->
+<!-- ====================================
+     CORE EXPERTISE
+==================================== -->
 
 <section id="skills">
 
 <div class="container">
 
 <h2 class="section-title fade-up">
-Technical Expertise
+Core Expertise
 </h2>
 
-<div class="grid">
-
 <div class="card fade-up">
 
-<h3>Artificial Intelligence</h3>
-
-<br>
-
-<span class="skill">Azure OpenAI</span>
 <span class="skill">Azure AI</span>
 <span class="skill">Generative AI</span>
-<span class="skill">NLP</span>
-<span class="skill">Computer Vision</span>
-<span class="skill">AI Agents</span>
+<span class="skill">Azure OpenAI</span>
 <span class="skill">GitHub Copilot</span>
-<span class="skill">MCP</span>
+<span class="skill">Model Context Protocol (MCP)</span>
 
-</div>
-
-<div class="card fade-up">
-
-<h3>Cloud & Architecture</h3>
-
-<br>
-
-<span class="skill">Microsoft Azure</span>
-<span class="skill">Azure Functions</span>
-<span class="skill">Logic Apps</span>
-<span class="skill">Service Bus</span>
-<span class="skill">Microservices</span>
-<span class="skill">Web API</span>
 <span class="skill">Cloud Architecture</span>
-<span class="skill">Event Driven Systems</span>
-
-</div>
-
-<div class="card fade-up">
-
-<h3>Backend Development</h3>
-
-<br>
+<span class="skill">Enterprise Architecture</span>
+<span class="skill">Solution Design</span>
 
 <span class="skill">C#</span>
 <span class="skill">.NET Core</span>
 <span class="skill">ASP.NET Core</span>
-<span class="skill">Entity Framework</span>
-<span class="skill">Dapper</span>
-<span class="skill">LINQ</span>
-<span class="skill">SQL Server</span>
 
-</div>
+<span class="skill">Microservices</span>
+<span class="skill">REST APIs</span>
 
-<div class="card fade-up">
+<span class="skill">Azure Functions</span>
+<span class="skill">Logic Apps</span>
 
-<h3>Frontend Development</h3>
-
-<br>
-
-<span class="skill">Angular</span>
-<span class="skill">React</span>
-<span class="skill">TypeScript</span>
-<span class="skill">JavaScript</span>
-<span class="skill">HTML5</span>
-<span class="skill">CSS3</span>
-<span class="skill">Bootstrap</span>
-
-</div>
-
-<div class="card fade-up">
-
-<h3>DevOps & Tools</h3>
-
-<br>
+<span class="skill">Azure Service Bus</span>
+<span class="skill">Azure Storage</span>
 
 <span class="skill">Azure DevOps</span>
-<span class="skill">GitHub</span>
 <span class="skill">CI/CD</span>
-<span class="skill">Bicep</span>
-<span class="skill">Postman</span>
-<span class="skill">Jira</span>
-<span class="skill">Confluence</span>
 
-</div>
+<span class="skill">SQL Server</span>
+<span class="skill">Entity Framework</span>
 
-<div class="card fade-up">
+<span class="skill">React</span>
+<span class="skill">Angular</span>
 
-<h3>Leadership</h3>
-
-<br>
-
-<span class="skill">Architecture Reviews</span>
-<span class="skill">Code Reviews</span>
-<span class="skill">Mentoring</span>
-<span class="skill">Technical Interviews</span>
-<span class="skill">Agile Delivery</span>
-<span class="skill">Stakeholder Management</span>
-
-</div>
+<span class="skill">Technical Leadership</span>
+<span class="skill">Team Mentoring</span>
+<span class="skill">System Design</span>
 
 </div>
 
@@ -917,9 +593,9 @@ Technical Expertise
 
 </section>
 
-<!-- ========================= -->
-<!-- EXPERIENCE -->
-<!-- ========================= -->
+<!-- ====================================
+     EXPERIENCE
+==================================== -->
 
 <section id="experience">
 
@@ -931,106 +607,93 @@ Professional Experience
 
 <div class="timeline">
 
-<div class="timeline-item fade-up">
+<div class="timeline-item card fade-up">
 
-<h3>Technical Lead</h3>
-
-<p style="color:#60a5fa;">
-2023 – Present
-</p>
+<h3>
+Technical Lead
+</h3>
 
 <p>
-
-Leading Azure AI and cloud transformation initiatives,
-architecting enterprise-grade cloud-native applications,
-mentoring engineering teams, conducting technical interviews,
-and driving Agile delivery.
-
-Responsible for architecture governance, microservices design,
-technical leadership, CI/CD automation, and stakeholder engagement.
-
+Leading enterprise-scale software development initiatives,
+cloud modernization programs, AI adoption strategies,
+solution architecture reviews, and engineering excellence practices.
 </p>
+
+<ul>
+
+<li>Leading high-performing engineering teams</li>
+
+<li>Driving Azure Cloud and AI transformation initiatives</li>
+
+<li>Conducting architecture reviews and technical governance</li>
+
+<li>Mentoring developers and technical leads</li>
+
+<li>Delivering scalable enterprise solutions</li>
+
+<li>Conducting technical interviews and capability assessments</li>
+
+</ul>
 
 </div>
 
-<div class="timeline-item fade-up">
+<div class="timeline-item card fade-up">
 
-<h3>Senior Software Engineer</h3>
-
-<p style="color:#60a5fa;">
-2021 – 2023
-</p>
+<h3>
+Senior Software Engineer
+</h3>
 
 <p>
 
-Designed and developed scalable .NET and Azure solutions,
-enterprise APIs, microservices, payment integrations,
-and cloud-native applications.
-
-Focused on performance optimization,
-system reliability, and enterprise integrations.
+Designed and developed enterprise-grade applications,
+payment orchestration platforms, cloud-native systems,
+and integration solutions supporting large-scale business operations.
 
 </p>
+
+<ul>
+
+<li>Microservices architecture implementation</li>
+
+<li>API and integration development</li>
+
+<li>Performance optimization initiatives</li>
+
+<li>Cloud migration and modernization</li>
+
+<li>Agile delivery and DevOps adoption</li>
+
+</ul>
 
 </div>
 
-<div class="timeline-item fade-up">
+<div class="timeline-item card fade-up">
 
-<h3>Senior Embedded Engineer</h3>
-
-<p style="color:#60a5fa;">
-2020 – 2021
-</p>
+<h3>
+Senior Embedded Engineer
+</h3>
 
 <p>
 
-Developed embedded systems, firmware solutions,
-IoT applications and industrial hardware systems.
-
-Conducted product research, validation,
-testing and hardware optimization.
+Worked on embedded systems, electronic products,
+IoT-enabled solutions, communication systems,
+and hardware-software integration projects.
 
 </p>
 
-</div>
+<ul>
 
-<div class="timeline-item fade-up">
+<li>Embedded firmware development</li>
 
-<h3>Research & Development Engineer</h3>
+<li>Microcontroller-based system design</li>
 
-<p style="color:#60a5fa;">
-2019 – 2020
-</p>
+<li>Hardware integration and testing</li>
 
-<p>
+<li>Communication protocol implementation</li>
 
-Developed scientific measurement systems,
-mobile applications and prototype solutions.
+<li>Product engineering lifecycle support</li>
 
-Supported research initiatives and technology innovation projects.
-
-</p>
-
-</div>
-
-<div class="timeline-item fade-up">
-
-<h3>Software Developer</h3>
-
-<p style="color:#60a5fa;">
-2017 – 2019
-</p>
-
-<p>
-
-Developed enterprise web applications,
-database-driven business systems,
-reporting platforms and backend APIs.
-
-Supported production deployments,
-maintenance and feature enhancements.
-
-</p>
+</ul>
 
 </div>
 
@@ -1039,9 +702,10 @@ maintenance and feature enhancements.
 </div>
 
 </section>
-  <!-- ========================= -->
-<!-- PROJECTS -->
-<!-- ========================= -->
+
+<!-- ====================================
+     PROJECTS
+==================================== -->
 
 <section id="projects">
 
@@ -1055,25 +719,21 @@ Featured Projects
 
 <div class="card fade-up">
 
-<h3>Enterprise Retail Platform</h3>
+<h3>
+Enterprise Retail Platform
+</h3>
 
 <p>
 
-Enterprise-grade retail ecosystem supporting
-inventory synchronization,
-distributed order management,
-high-volume transactions,
-and third-party integrations.
+Global retail ecosystem supporting inventory synchronization,
+order management, enterprise integrations, and operational efficiency.
 
 </p>
 
-<br>
-
 <p>
 
-<strong>Technologies:</strong><br>
-
-Azure • .NET Core • Microservices • SQL Server • Azure Functions • Service Bus
+<strong>Technology:</strong>
+Azure, .NET Core, Microservices, SQL Server
 
 </p>
 
@@ -1081,27 +741,21 @@ Azure • .NET Core • Microservices • SQL Server • Azure Functions • Ser
 
 <div class="card fade-up">
 
-<h3>B2B / B2C eCommerce Platform</h3>
+<h3>
+B2B / B2C eCommerce Platform
+</h3>
 
 <p>
 
-Enterprise commerce platform integrating
-ERP systems,
-payment providers,
-customer portals,
-and distributor portals.
-
-Built using scalable microservices architecture.
+Enterprise commerce platform supporting payment orchestration,
+ERP integration, customer engagement, and secure transactions.
 
 </p>
 
-<br>
-
 <p>
 
-<strong>Technologies:</strong><br>
-
-Azure Functions • Service Bus • Angular • .NET Core • Logic Apps
+<strong>Technology:</strong>
+Azure Functions, Service Bus, Angular, APIs
 
 </p>
 
@@ -1109,27 +763,22 @@ Azure Functions • Service Bus • Angular • .NET Core • Logic Apps
 
 <div class="card fade-up">
 
-<h3>Release Ticket Management System</h3>
+<h3>
+Release Ticket Management Platform
+</h3>
 
 <p>
 
-Enterprise release governance platform
-inspired by modern DevOps workflows.
-
-Provides deployment planning,
-release tracking,
-workflow automation,
-and governance controls.
+Enterprise solution for release governance,
+deployment approvals, audit tracking,
+and change management processes.
 
 </p>
 
-<br>
-
 <p>
 
-<strong>Technologies:</strong><br>
-
-ASP.NET Core • Entity Framework • Azure DevOps • SQL Server
+<strong>Technology:</strong>
+.NET Core, Azure DevOps, SQL Server
 
 </p>
 
@@ -1137,25 +786,67 @@ ASP.NET Core • Entity Framework • Azure DevOps • SQL Server
 
 <div class="card fade-up">
 
-<h3>Car Rental Reservation Platform</h3>
+<h3>
+Car Rental Reservation System
+</h3>
 
 <p>
 
-Fleet management,
-reservation workflow,
-payment integration,
-customer management,
-and accounting integration platform.
+Fleet management, reservation workflows,
+customer booking journeys, and payment integrations.
 
 </p>
 
-<br>
+<p>
+
+<strong>Technology:</strong>
+.NET, APIs, SQL Server
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+AI-Powered Enterprise Solutions
+</h3>
 
 <p>
 
-<strong>Technologies:</strong><br>
+Implemented Generative AI, Azure AI,
+Azure OpenAI, and intelligent automation solutions
+to improve productivity and decision-making.
 
-ASP.NET • SQL Server • WCF • Web APIs
+</p>
+
+<p>
+
+<strong>Technology:</strong>
+Azure AI, Azure OpenAI, GitHub Copilot
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Cloud Modernization Initiatives
+</h3>
+
+<p>
+
+Migration and modernization of enterprise applications
+towards cloud-native architectures, scalability,
+and operational excellence.
+
+</p>
+
+<p>
+
+<strong>Technology:</strong>
+Azure Cloud, Microservices, DevOps
 
 </p>
 
@@ -1167,9 +858,9 @@ ASP.NET • SQL Server • WCF • Web APIs
 
 </section>
 
-<!-- ========================= -->
-<!-- CERTIFICATIONS -->
-<!-- ========================= -->
+<!-- ====================================
+     CERTIFICATIONS
+==================================== -->
 
 <section id="certifications">
 
@@ -1182,81 +873,52 @@ Certifications
 <div class="grid">
 
 <div class="card fade-up">
-Azure AI Engineer Associate (AI-102)
+
+<h3>
+AI-102
+</h3>
+
+<p>
+Microsoft Certified:
+Azure AI Engineer Associate
+</p>
+
 </div>
 
 <div class="card fade-up">
-Azure AI Fundamentals (AI-900)
+
+<h3>
+AI-900
+</h3>
+
+<p>
+Microsoft Certified:
+Azure AI Fundamentals
+</p>
+
 </div>
 
 <div class="card fade-up">
+
+<h3>
+AZ-204
+</h3>
+
+<p>
+Microsoft Certified:
 Azure Developer Associate
+</p>
+
 </div>
 
 <div class="card fade-up">
+
+<h3>
 Applied Generative AI Professional
-</div>
-
-  <div class="card fade-up">
-Anthropic: Introduction to Claude Cowork
-  </div>
-  
-  <div class="card fade-up">
-Anthropic: Claude Code in Action
-  </div>
-
-  <div class="card fade-up">
-Anthropic: Claude code 101
-  </div>
-  
-<div class="card fade-up">
-Global Agile Developer Certification
-</div>
-
-<div class="card fade-up">
-.NET Microservices Developer
-</div>
-
-<div class="card fade-up">
-Front-End Web Developer
-</div>
-
-<div class="card fade-up">
-Python Programming Certification
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- PATENT & PUBLICATION -->
-<!-- ========================= -->
-
-<section>
-
-<div class="container">
-
-<h2 class="section-title fade-up">
-Patent & Publication
-</h2>
-
-<div class="grid">
-
-<div class="card fade-up">
-
-<h3>
-Patent
 </h3>
 
-<br>
-
 <p>
-
-Portable Colorimeter for Heavy Metal Detection in Water
-
+Enterprise AI and Generative AI Practitioner
 </p>
 
 </div>
@@ -1264,15 +926,13 @@ Portable Colorimeter for Heavy Metal Detection in Water
 <div class="card fade-up">
 
 <h3>
-Research Publication
+Continuous Learning
 </h3>
 
-<br>
-
 <p>
-
-Detection of Lung Cancer using Cat Swarm and BFO Optimization Method
-
+Actively pursuing advanced skills in AI,
+Agentic Systems, MCP, Enterprise Architecture,
+and Quantum Computing.
 </p>
 
 </div>
@@ -1283,11 +943,11 @@ Detection of Lung Cancer using Cat Swarm and BFO Optimization Method
 
 </section>
 
-<!-- ========================= -->
-<!-- AWARDS -->
-<!-- ========================= -->
+<!-- ====================================
+     AWARDS
+==================================== -->
 
-<section>
+<section id="awards">
 
 <div class="container">
 
@@ -1298,19 +958,23 @@ Awards & Recognition
 <div class="grid">
 
 <div class="card fade-up">
-🏆 Rise Insta Award (2026)
+🏆 Rise Insta Award
 </div>
 
 <div class="card fade-up">
-🏆 Quarterly RISE Award (2025)
+🏆 Quarterly Rise Award
 </div>
 
 <div class="card fade-up">
-🏆 INSTA Award (2024)
+🏆 INSTA Award
 </div>
 
 <div class="card fade-up">
-🏆 DOT Townhall Award (2024)
+🏆 DOT Townhall Award
+</div>
+
+<div class="card fade-up">
+🏆 Excellence in Delivery & Innovation
 </div>
 
 </div>
@@ -1319,9 +983,697 @@ Awards & Recognition
 
 </section>
 
-<!-- ========================= -->
-<!-- CONTACT -->
-<!-- ========================= -->
+   <!-- ====================================
+     EDUCATION
+==================================== -->
+
+<section id="education">
+
+<div class="container">
+
+<h2 class="section-title fade-up">
+Education
+</h2>
+
+<p class="section-subtitle fade-up">
+
+Strong academic foundation in Electronics & Communication Engineering,
+complemented by advanced studies in Artificial Intelligence,
+Deep Learning, Intelligent Systems, Communication Technologies,
+and Modern Computing.
+
+</p>
+
+<div class="grid">
+
+<div class="card fade-up">
+
+<h3>
+🎓 Master of Technology (M.Tech)
+</h3>
+
+<p class="education-stream">
+Electronics & Communication Engineering
+</p>
+
+<p>
+
+Specialized in advanced communication systems,
+signal processing, Artificial Neural Networks (ANN),
+Deep Learning, intelligent computing,
+machine learning concepts, pattern recognition,
+optimization techniques, and emerging technologies.
+
+Developed strong research, analytical,
+and problem-solving capabilities through
+innovation-driven projects and academic research.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+🎓 Bachelor of Technology (B.Tech)
+</h3>
+
+<p class="education-stream">
+Electronics & Communication Engineering
+</p>
+
+<p>
+
+Built a strong foundation in electronics,
+communication systems, embedded systems,
+microprocessors, networking, control systems,
+digital signal processing, and software engineering.
+
+Developed technical expertise through
+academic projects, engineering design,
+and laboratory research.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+🎓 Diploma in Engineering
+</h3>
+
+<p class="education-stream">
+Electronics & Communication Engineering
+</p>
+
+<p>
+
+Acquired practical engineering knowledge in
+electronic circuits, communication technologies,
+microcontroller systems, instrumentation,
+industrial applications, and troubleshooting.
+
+Hands-on experience strengthened problem-solving
+and implementation skills.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+🏫 Secondary Education (10th)
+</h3>
+
+<p class="education-stream">
+Academic Foundation
+</p>
+
+<p>
+
+Established a strong foundation in mathematics,
+science, analytical thinking, logical reasoning,
+and problem-solving which laid the groundwork
+for higher education and engineering excellence.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ====================================
+     RESEARCH & PUBLICATIONS
+==================================== -->
+
+<section id="research">
+
+<div class="container">
+
+<h2 class="section-title fade-up">
+Research & Innovation Interests
+</h2>
+
+<div class="grid">
+
+<div class="card fade-up">
+
+<h3>
+Artificial Intelligence
+</h3>
+
+<p>
+
+Exploring intelligent systems,
+machine learning, deep learning,
+and enterprise AI applications.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Generative AI
+</h3>
+
+<p>
+
+Researching Large Language Models,
+Agentic AI systems, Retrieval-Augmented Generation,
+and enterprise AI adoption.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Artificial Neural Networks
+</h3>
+
+<p>
+
+Interest in ANN architectures,
+optimization techniques,
+and intelligent decision systems.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Deep Learning
+</h3>
+
+<p>
+
+Focus on neural networks,
+computer vision, predictive analytics,
+and advanced AI models.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Cloud Native Systems
+</h3>
+
+<p>
+
+Designing scalable, resilient,
+and intelligent cloud-based platforms.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Quantum Computing
+</h3>
+
+<p>
+
+Exploring future computing paradigms,
+quantum algorithms,
+and next-generation intelligent systems.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ====================================
+     LEADERSHIP & MENTORING
+==================================== -->
+
+<section id="leadership">
+
+<div class="container">
+
+<h2 class="section-title fade-up">
+Leadership & Mentoring
+</h2>
+
+<div class="grid">
+
+<div class="card fade-up">
+
+<h3>
+Technical Leadership
+</h3>
+
+<p>
+
+Leading engineering teams,
+architecture initiatives,
+technology modernization programs,
+and enterprise transformation efforts.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Developer Mentoring
+</h3>
+
+<p>
+
+Guiding engineers in software design,
+coding best practices,
+career development,
+and technical excellence.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Technical Interviews
+</h3>
+
+<p>
+
+Conducting candidate evaluations,
+architecture discussions,
+and technical capability assessments.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Architecture Governance
+</h3>
+
+<p>
+
+Driving solution reviews,
+best practices,
+security considerations,
+and engineering standards.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ====================================
+     SPEAKING & KNOWLEDGE SHARING
+==================================== -->
+
+<section id="speaking">
+
+<div class="container">
+
+<h2 class="section-title fade-up">
+Knowledge Sharing
+</h2>
+
+<div class="grid">
+
+<div class="card fade-up">
+
+<h3>
+Technical Workshops
+</h3>
+
+<p>
+
+Conducting sessions on Azure,
+Artificial Intelligence,
+Cloud Architecture,
+and Engineering Excellence.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+AI Enablement
+</h3>
+
+<p>
+
+Promoting Generative AI adoption,
+GitHub Copilot usage,
+and intelligent engineering practices.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Architecture Reviews
+</h3>
+
+<p>
+
+Knowledge sharing through architecture discussions,
+design reviews,
+and enterprise solution planning.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Continuous Learning
+</h3>
+
+<p>
+
+Actively contributing to technical growth,
+innovation culture,
+and engineering communities.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ====================================
+     TECHNOLOGY ROADMAP
+==================================== -->
+
+<section id="roadmap">
+
+<div class="container">
+
+<h2 class="section-title fade-up">
+Technology Roadmap
+</h2>
+
+<div class="grid">
+
+<div class="card fade-up">
+
+<h3>
+Current Focus
+</h3>
+
+<ul>
+
+<li>Azure AI</li>
+<li>Generative AI</li>
+<li>Azure OpenAI</li>
+<li>Cloud Architecture</li>
+<li>Microservices</li>
+<li>GitHub Copilot</li>
+
+</ul>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Exploring
+</h3>
+
+<ul>
+
+<li>Agentic AI</li>
+<li>Model Context Protocol (MCP)</li>
+<li>AI Agents</li>
+<li>Autonomous Systems</li>
+<li>Multi-Agent Architectures</li>
+
+</ul>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Future Vision
+</h3>
+
+<ul>
+
+<li>Quantum Computing</li>
+<li>Intelligent Enterprises</li>
+<li>Enterprise Architecture</li>
+<li>AI Governance</li>
+<li>Next-Generation Computing</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ====================================
+     PATENTS & INNOVATIONS
+==================================== -->
+
+<section id="innovation">
+
+<div class="container">
+
+<h2 class="section-title fade-up">
+Patents & Innovations
+</h2>
+
+<div class="card fade-up">
+
+<p>
+
+Passionate about innovation,
+emerging technologies,
+Artificial Intelligence,
+and enterprise transformation.
+
+Continuously exploring opportunities
+for research publications,
+patentable solutions,
+technical innovations,
+and next-generation enterprise systems.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+   <!-- ====================================
+     TESTIMONIALS
+==================================== -->
+
+<section id="testimonials">
+
+<div class="container">
+
+<h2 class="section-title fade-up">
+Testimonials
+</h2>
+
+<div class="grid">
+
+<div class="card fade-up">
+
+<p>
+
+"Demonstrates exceptional technical leadership,
+strong architectural thinking, and the ability to
+deliver complex enterprise solutions successfully."
+
+</p>
+
+<h4>
+— Leadership Feedback
+</h4>
+
+</div>
+
+<div class="card fade-up">
+
+<p>
+
+"Consistently drives innovation, mentors team members,
+and promotes engineering excellence across projects."
+
+</p>
+
+<h4>
+— Engineering Team Feedback
+</h4>
+
+</div>
+
+<div class="card fade-up">
+
+<p>
+
+"Highly skilled in cloud technologies,
+AI solutions, and enterprise-scale software development."
+
+</p>
+
+<h4>
+— Technical Stakeholders
+</h4>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ====================================
+     OPEN SOURCE & COMMUNITY
+==================================== -->
+
+<section id="community">
+
+<div class="container">
+
+<h2 class="section-title fade-up">
+Open Source & Community
+</h2>
+
+<div class="grid">
+
+<div class="card fade-up">
+
+<h3>
+Open Source Contributions
+</h3>
+
+<p>
+
+Passionate about contributing to the technology ecosystem
+through knowledge sharing, reusable solutions,
+and engineering best practices.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Technical Blogging
+</h3>
+
+<p>
+
+Sharing insights on Artificial Intelligence,
+Cloud Architecture, Enterprise Engineering,
+and emerging technologies.
+
+</p>
+
+</div>
+
+<div class="card fade-up">
+
+<h3>
+Community Engagement
+</h3>
+
+<p>
+
+Supporting developer communities through mentoring,
+technical discussions, workshops, and innovation initiatives.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ====================================
+     PROFESSIONAL PHILOSOPHY
+==================================== -->
+
+<section id="philosophy">
+
+<div class="container">
+
+<h2 class="section-title fade-up">
+Professional Philosophy
+</h2>
+
+<div class="card fade-up">
+
+<p style="
+font-size:1.2rem;
+text-align:center;
+font-style:italic;
+">
+
+"Technology should not only solve today's challenges
+but also create opportunities for tomorrow's innovation.
+The best solutions are scalable, intelligent,
+secure, and built with a vision for the future."
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ====================================
+     CONTACT
+==================================== -->
 
 <section id="contact">
 
@@ -1331,20 +1683,13 @@ Awards & Recognition
 Let's Connect
 </h2>
 
-<div class="card fade-up"
-style="text-align:center;">
-
-<br>
+<div class="card fade-up">
 
 <p>
 
-<i class="fas fa-envelope"></i>
-
-<a href="mailto:vr1574@gmail.com"
-style="color:#60a5fa;">
-
+📧 <strong>Email</strong><br>
+<a href="mailto:vr1574@gmail.com">
 vr1574@gmail.com
-
 </a>
 
 </p>
@@ -1353,15 +1698,33 @@ vr1574@gmail.com
 
 <p>
 
-<i class="fab fa-linkedin"></i>
-
-<a href="https://www.linkedin.com/in/vikas-90124017b"
-target="_blank"
-style="color:#60a5fa;">
-
-linkedin.com/in/vikas-90124017b
-
+💼 <strong>LinkedIn</strong><br>
+<a href="https://www.linkedin.com/" target="_blank">
+Connect Professionally
 </a>
+
+</p>
+
+<br>
+
+<p>
+
+💻 <strong>GitHub</strong><br>
+<a href="#" target="_blank">
+GitHub Profile
+</a>
+
+</p>
+
+<br>
+
+<p>
+
+🚀 Open to discussions on
+Artificial Intelligence,
+Cloud Architecture,
+Enterprise Transformation,
+and Emerging Technologies.
 
 </p>
 
@@ -1371,76 +1734,46 @@ linkedin.com/in/vikas-90124017b
 
 </section>
 
-<!-- ========================= -->
-<!-- FOOTER -->
-<!-- ========================= -->
+<!-- ====================================
+     FOOTER
+==================================== -->
 
 <footer>
 
 <div class="container">
 
+<h3>
+
+Technical Lead | Azure AI Engineer |
+Enterprise Architect
+
+</h3>
+
 <p>
 
-© 2026 Vikas
+Building Intelligent Solutions for the Future
 
 </p>
 
-<p style="color:#94a3b8;">
+<br>
 
-Technical Lead • Azure AI Engineer • AI-102 • AI-900 • AZ-204 Certified
+<p>
+
+© 2026 All Rights Reserved
+
 </p>
 
 </div>
 
 </footer>
 
-<!-- ========================= -->
-<!-- MOBILE RESPONSIVE -->
-<!-- ========================= -->
-
-<style>
-
-@media(max-width:768px){
-
-.hero-content{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.hero h1{
-font-size:2.6rem;
-}
-
-.profile{
-width:220px;
-height:220px;
-}
-
-.nav-links{
-display:none;
-}
-
-.menu-btn{
-display:block;
-color:white;
-}
-
-.section-title{
-font-size:2rem;
-}
-
-}
-
-</style>
-
-<!-- ========================= -->
-<!-- SCROLL ANIMATION -->
-<!-- ========================= -->
+<!-- ====================================
+     SCROLL ANIMATION SCRIPT
+==================================== -->
 
 <script>
 
-const observer =
-new IntersectionObserver(entries => {
+const observer = new IntersectionObserver(entries => {
 
 entries.forEach(entry => {
 
@@ -1454,11 +1787,12 @@ entry.target.classList.add('show');
 
 });
 
-document
-.querySelectorAll('.fade-up')
+document.querySelectorAll('.fade-up')
+
 .forEach(el => observer.observe(el));
 
 </script>
 
 </body>
+
 </html>
