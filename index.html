@@ -24,6 +24,7 @@
       --shadow-sm:0 2px 12px rgba(0,0,0,.06);
       --shadow-md:0 6px 30px rgba(0,0,0,.10);
       --card-glass:rgba(247,247,245,.75);
+      --featured-tag-bg:rgba(255,255,255,.7);
       --r:12px;--nav-h:64px;
       --fd:'DM Serif Display',serif;--fb:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;
     }
@@ -37,6 +38,7 @@
       --shadow-sm:0 2px 14px rgba(0,0,0,.5);
       --shadow-md:0 8px 34px rgba(0,0,0,.6);
       --card-glass:rgba(22,25,34,.65);
+      --featured-tag-bg:rgba(255,255,255,.06);
     }
     html{transition:background-color .35s ease}
     body{transition:background-color .35s ease,color .35s ease}
@@ -105,6 +107,25 @@
     .badge-gold{background:var(--gold-lt);color:var(--gold)}
     .badge-green{background:var(--green-lt);color:var(--green)}
     .hero-cta{display:flex;flex-wrap:wrap;gap:.85rem;opacity:0;animation:slideInLeft .7s .9s cubic-bezier(.22,1,.36,1) forwards}
+    .live-clock{
+      display:inline-flex;align-items:center;gap:.6rem;
+      font-family:var(--fm);font-size:.78rem;color:var(--ink-60);
+      background:var(--paper-2);border:1px solid var(--rule);
+      border-radius:100px;padding:.45rem 1rem;margin-top:1.6rem;
+      opacity:0;animation:slideInLeft .7s 1.05s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    .live-clock .dot{
+      width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;
+      box-shadow:0 0 0 0 rgba(26,158,106,.5);
+      animation:pulseDot 2.4s infinite;
+    }
+    .live-clock .lc-time{color:var(--ink);font-weight:600;letter-spacing:.04em}
+    .live-clock .lc-zone{color:var(--ink-30)}
+    @keyframes pulseDot{
+      0%{box-shadow:0 0 0 0 rgba(26,158,106,.45)}
+      70%{box-shadow:0 0 0 7px rgba(26,158,106,0)}
+      100%{box-shadow:0 0 0 0 rgba(26,158,106,0)}
+    }
     .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.72rem 1.45rem;border-radius:var(--r);font-size:.84rem;font-weight:600;cursor:pointer;transition:transform .22s,box-shadow .22s;position:relative;overflow:hidden}
     .btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);transform:translateX(-110%) skewX(-15deg);transition:transform .4s ease}
     .btn:hover::before{transform:translateX(110%) skewX(-15deg)}
@@ -152,8 +173,8 @@
     .skill-tag:hover{background:var(--azure-lt);color:var(--azure);transform:translateY(-1px)}
     .skill-card.featured{grid-column:span 2;background:linear-gradient(135deg,var(--azure-lt),var(--paper-2));border:1px solid rgba(0,112,243,.25);position:relative}
     .skill-card.featured::before{background:linear-gradient(90deg,var(--azure),var(--green))}
-    .skill-card.featured .skill-card-title{color:var(--azure-dk);font-size:.75rem}
-    .skill-card.featured .skill-tag{background:rgba(255,255,255,.7);border-color:rgba(0,112,243,.18)}
+    .skill-card.featured .skill-card-title{color:var(--azure);font-size:.75rem}
+    .skill-card.featured .skill-tag{background:var(--featured-tag-bg);border-color:rgba(0,112,243,.18);color:var(--ink)}
     .skill-card.featured .skill-tag:hover{background:var(--azure);color:#fff}
     @media(max-width:620px){.skill-card.featured{grid-column:span 1}}
 
@@ -319,6 +340,12 @@
         <a href="#experience" class="btn btn-primary">View Experience &darr;</a>
         <a href="#projects" class="btn btn-ghost">See Projects</a>
       </div>
+      <div class="live-clock" id="liveClock">
+        <span class="dot"></span>
+        <span>India</span>
+        <span class="lc-time" id="lcTime">--:--:-- --</span>
+        <span class="lc-zone">IST</span>
+      </div>
     </div>
     <div class="hero-stats">
       <div class="stat-card"><div class="stat-num"><span class="counter" data-target="8">0</span>.2</div><div class="stat-label">Years Experience</div></div>
@@ -444,10 +471,26 @@
   </div>
 </section>
 
+<section id="summary">
+  <div class="container">
+    <div class="section-header reveal"><p class="section-tag">08 / Summary</p><h2 class="section-title">Career Summary</h2><hr class="section-rule"/></div>
+    <div class="summary-card reveal">
+      <p>Azure Full-Stack Developer and Technical Lead with <strong>8.2 years of experience</strong> designing and delivering scalable enterprise solutions across .NET, microservices, and cloud architecture.</p>
+      <p>Microsoft Certified <strong>Azure AI Engineer (AI-102)</strong> and <strong>Azure Developer Associate</strong>, with hands-on expertise in Azure Cognitive Services, generative AI, and custom AI agents &mdash; including Claude Code in active development workflows.</p>
+      <p>Skilled in building secure, <strong>PCI-DSS compliant payment platforms</strong>, end-to-end integration solutions across the Azure stack (API Management, Service Bus, Logic Apps, Event Grid), and modern front-ends using Blazor, React, and Angular.</p>
+      <p>Holds a <strong>patent in portable colorimetry</strong> and a published research paper on lung cancer detection. Currently leading and mentoring cross-functional development teams at Infosys Limited.</p>
+      <div class="summary-cta">
+        <a href="https://www.linkedin.com/in/vikas-90124017b/" target="_blank" class="btn btn-primary">Connect on LinkedIn</a>
+        <a href="#hero" class="btn btn-ghost">Back to Top &uarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-links"><a href="https://www.linkedin.com/in/vikas-90124017b/" target="_blank">LinkedIn</a><a href="#hero">Back to top &uarr;</a></div>
-    <div>Portfolio of <span>Vikas</span> &mdash; Technical Lead &amp; Azure AI Engineer &middot; Mohali, India</div>
+    <div>Portfolio of <span>Vikas</span> &mdash; Technical Lead &amp; Azure AI Engineer &middot; India</div>
   </div>
 </footer>
 
@@ -552,6 +595,16 @@ themeBtn.addEventListener('click',()=>{
   document.documentElement.setAttribute('data-theme',cur==='dark'?'light':'dark');
   syncThemeIcon();
 });
+
+/* LIVE CLOCK - Mohali, India (IST) */
+const lcTime=document.getElementById('lcTime');
+function updateClock(){
+  const now=new Date();
+  const time=now.toLocaleTimeString('en-US',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});
+  lcTime.textContent=time;
+}
+updateClock();
+setInterval(updateClock,1000);
 </script>
 </body>
 </html>
