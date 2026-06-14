@@ -7,6 +7,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    (function(){
+      var d = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', d ? 'dark' : 'light');
+    })();
+  </script>
   <style>
     :root {
       --ink:#0e0f11;--ink-60:#555a66;--ink-30:#b0b5bf;
@@ -17,17 +23,40 @@
       --rule:rgba(14,15,17,.09);
       --shadow-sm:0 2px 12px rgba(0,0,0,.06);
       --shadow-md:0 6px 30px rgba(0,0,0,.10);
+      --card-glass:rgba(247,247,245,.75);
       --r:12px;--nav-h:64px;
       --fd:'DM Serif Display',serif;--fb:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;
     }
+    :root[data-theme="dark"] {
+      --ink:#edf0f4;--ink-60:#a3aab8;--ink-30:#586071;
+      --paper:#0d0f13;--paper-2:#161922;
+      --azure:#4da3ff;--azure-dk:#1f7aff;--azure-lt:rgba(77,163,255,.14);
+      --gold:#e3b765;--gold-lt:rgba(227,183,101,.12);
+      --green:#3ecf99;--green-lt:rgba(62,207,153,.12);
+      --rule:rgba(255,255,255,.08);
+      --shadow-sm:0 2px 14px rgba(0,0,0,.5);
+      --shadow-md:0 8px 34px rgba(0,0,0,.6);
+      --card-glass:rgba(22,25,34,.65);
+    }
+    html{transition:background-color .35s ease}
+    body{transition:background-color .35s ease,color .35s ease}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{font-family:var(--fb);background:var(--paper);color:var(--ink);line-height:1.65;font-size:15px;overflow-x:hidden}
     a{color:inherit;text-decoration:none}
 
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);background:rgba(247,247,245,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,5vw,3rem);transition:box-shadow .35s}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);background:var(--paper);border-bottom:1px solid var(--rule);box-shadow:0 1px 0 rgba(14,15,17,.04);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,5vw,3rem);transition:box-shadow .35s,background-color .35s ease,border-color .35s ease}
     nav.scrolled{box-shadow:var(--shadow-md)}
+    .nav-right{display:flex;align-items:center;gap:1rem}
+    .theme-toggle{
+      display:flex;align-items:center;justify-content:center;
+      width:36px;height:36px;border-radius:50%;flex-shrink:0;
+      border:1px solid var(--rule);background:var(--paper-2);
+      color:var(--ink);font-size:1rem;cursor:pointer;
+      transition:background-color .25s,border-color .25s,transform .35s,box-shadow .2s;
+    }
+    .theme-toggle:hover{box-shadow:var(--shadow-sm);transform:rotate(18deg)}
     .nav-logo{font-family:var(--fd);font-size:1.4rem;letter-spacing:-.015em;position:relative}
     .nav-logo span{color:var(--azure)}
     .nav-logo::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--azure);transition:width .3s}
@@ -35,7 +64,8 @@
     .nav-links{display:flex;gap:1.8rem;list-style:none}
     .nav-links a{font-size:.75rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-60);position:relative;padding-bottom:2px;transition:color .2s}
     .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:var(--azure);transition:width .25s}
-    .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+    .nav-links a:hover{color:var(--ink)}
+    .nav-links a.active{color:var(--azure);font-weight:600}
     .nav-links a:hover::after,.nav-links a.active::after{width:100%}
     .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
     .nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
@@ -83,13 +113,13 @@
     .btn-ghost{background:transparent;border:1.5px solid var(--rule);color:var(--ink)}
     .btn-ghost:hover{transform:translateY(-2px);background:var(--paper-2);box-shadow:var(--shadow-sm)}
     .hero-stats{display:flex;flex-direction:column;gap:1rem;opacity:0;animation:slideInRight .8s .5s cubic-bezier(.22,1,.36,1) forwards}
-    .stat-card{background:rgba(247,247,245,.75);backdrop-filter:blur(12px);border:1px solid var(--rule);border-radius:var(--r);padding:1.2rem 1.5rem;text-align:center;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
+    .stat-card{background:var(--card-glass);backdrop-filter:blur(12px);border:1px solid var(--rule);border-radius:var(--r);padding:1.2rem 1.5rem;text-align:center;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s,background-color .35s ease,border-color .35s ease}
     .stat-card:hover{transform:translateY(-3px) scale(1.03);box-shadow:var(--shadow-md)}
     .stat-num{font-family:var(--fd);font-size:2.8rem;line-height:1;background:linear-gradient(135deg,var(--azure),var(--azure-dk));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .stat-label{font-size:.68rem;color:var(--ink-30);letter-spacing:.08em;text-transform:uppercase;margin-top:.25rem}
 
     /* SECTIONS */
-    section{padding:clamp(3.5rem,8vw,6rem) clamp(1rem,5vw,3rem)}
+    section{padding:clamp(3.5rem,8vw,6rem) clamp(1rem,5vw,3rem);scroll-margin-top:var(--nav-h);transition:background-color .35s ease}
     .container{max-width:1060px;margin:0 auto}
     .section-header{margin-bottom:clamp(2rem,4vw,3rem)}
     .section-tag{font-family:var(--fm);font-size:.7rem;color:var(--azure);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem}
@@ -120,6 +150,12 @@
     .skill-tags{display:flex;flex-wrap:wrap;gap:.38rem}
     .skill-tag{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:.22rem .55rem;font-size:.73rem;color:var(--ink-60);transition:background .2s,color .2s,transform .15s;cursor:default}
     .skill-tag:hover{background:var(--azure-lt);color:var(--azure);transform:translateY(-1px)}
+    .skill-card.featured{grid-column:span 2;background:linear-gradient(135deg,var(--azure-lt),var(--paper-2));border:1px solid rgba(0,112,243,.25);position:relative}
+    .skill-card.featured::before{background:linear-gradient(90deg,var(--azure),var(--green))}
+    .skill-card.featured .skill-card-title{color:var(--azure-dk);font-size:.75rem}
+    .skill-card.featured .skill-tag{background:rgba(255,255,255,.7);border-color:rgba(0,112,243,.18)}
+    .skill-card.featured .skill-tag:hover{background:var(--azure);color:#fff}
+    @media(max-width:620px){.skill-card.featured{grid-column:span 1}}
 
     /* EXPERIENCE */
     #experience{background:var(--paper-2)}
@@ -202,7 +238,7 @@
     .award-issuer{font-size:.73rem;color:var(--ink-30)}
 
     /* FOOTER */
-    footer{background:var(--ink);color:rgba(255,255,255,.45);padding:2.8rem clamp(1rem,5vw,3rem);text-align:center;font-size:.8rem}
+    footer{background:#0e0f11;color:rgba(255,255,255,.45);padding:2.8rem clamp(1rem,5vw,3rem);text-align:center;font-size:.8rem;transition:background-color .35s ease}
     footer a{color:rgba(255,255,255,.7);transition:color .2s}
     footer a:hover{color:#fff}
     footer span{color:rgba(255,255,255,.85)}
@@ -221,6 +257,10 @@
     .stagger-children.visible>*:nth-child(6){opacity:1;transform:none;transition-delay:.45s}
     .stagger-children.visible>*:nth-child(7){opacity:1;transform:none;transition-delay:.53s}
     .stagger-children.visible>*:nth-child(8){opacity:1;transform:none;transition-delay:.61s}
+    .stagger-children.visible>*:nth-child(9){opacity:1;transform:none;transition-delay:.69s}
+    .stagger-children.visible>*:nth-child(10){opacity:1;transform:none;transition-delay:.77s}
+    .stagger-children.visible>*:nth-child(11){opacity:1;transform:none;transition-delay:.85s}
+    .stagger-children.visible>*:nth-child(12){opacity:1;transform:none;transition-delay:.93s}
 
     /* KEYFRAMES */
     @keyframes slideInLeft{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
@@ -229,7 +269,7 @@
 
     /* RESPONSIVE */
     @media(max-width:860px){.hero-inner{grid-template-columns:1fr}.hero-stats{flex-direction:row;flex-wrap:wrap}.stat-card{flex:1;min-width:120px}.about-grid{grid-template-columns:1fr}}
-    @media(max-width:600px){.nav-links{display:none;flex-direction:column;gap:1.4rem;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--paper);align-items:center;justify-content:center;font-size:1.15rem}.nav-links.open{display:flex}.nav-toggle{display:flex}.flip-wrapper{height:auto;perspective:none}.flip-card{transform:none !important;transform-style:flat}.flip-back{display:none}.flip-hint{display:none}}
+    @media(max-width:600px){.nav-links{display:none;flex-direction:column;gap:1.4rem;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--paper);align-items:center;justify-content:center;font-size:1.15rem}.nav-links.open{display:flex}.nav-toggle{display:flex}.flip-wrapper{height:auto;perspective:none}.flip-card{transform:none !important;transform-style:flat;position:relative;height:auto}.flip-front{position:relative;height:auto}.flip-back{display:none}.flip-hint{display:none}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
   </style>
 </head>
@@ -249,7 +289,10 @@
     <li><a href="#certifications">Certifications</a></li>
     <li><a href="#awards">Awards</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">&#127769;</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
 <section id="hero">
@@ -266,6 +309,7 @@
       <div class="typewriter-wrap" id="typewriter"></div>
       <p class="hero-tagline">8+ years delivering scalable cloud solutions, payment platforms, and applied AI &mdash; from architecture blueprints to zero-downtime production deployments.</p>
       <div class="hero-badges">
+        <span class="badge badge-blue">&#9729; Azure Full-Stack Developer</span>
         <span class="badge badge-blue">&#9729; Azure Developer Associate</span>
         <span class="badge badge-blue">&#129302; Azure AI Engineer AI-102</span>
         <span class="badge badge-gold">&#127894; AI Fundamentals AI-900</span>
@@ -278,8 +322,8 @@
     </div>
     <div class="hero-stats">
       <div class="stat-card"><div class="stat-num"><span class="counter" data-target="8">0</span>.2</div><div class="stat-label">Years Experience</div></div>
-      <div class="stat-card"><div class="stat-num"><span class="counter" data-target="4">0</span>+</div><div class="stat-label">Key Projects</div></div>
-      <div class="stat-card"><div class="stat-num"><span class="counter" data-target="8">0</span></div><div class="stat-label">Certifications</div></div>
+      <div class="stat-card"><div class="stat-num"><span class="counter" data-target="5">0</span>+</div><div class="stat-label">Key Projects</div></div>
+      <div class="stat-card"><div class="stat-num"><span class="counter" data-target="10">0</span></div><div class="stat-label">Certifications</div></div>
       <div class="stat-card"><div class="stat-num"><span class="counter" data-target="4">0</span></div><div class="stat-label">Awards</div></div>
     </div>
   </div>
@@ -290,9 +334,10 @@
     <div class="section-header reveal"><p class="section-tag">01 / Profile</p><h2 class="section-title">Who I am</h2><hr class="section-rule"/></div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>Full-stack developer with <strong>8.2 years of experience</strong> building components for business and data tiers using C#, .NET, ADO.NET, and Microservices. Proven expertise in n-tier architecture, WCF services, and payment orchestration platforms under <strong>strict PCI-DSS compliance</strong>.</p>
-        <p>Equipped with specialized expertise in Artificial Intelligence &mdash; designing and implementing Microsoft Azure AI Solutions (AI-102) with hands-on experience in Azure Cognitive Services, NLP, computer vision, generative AI, and <strong>custom AI agents</strong> to automate complex, context-aware workflows.</p>
-        <p>Highly experienced with <strong>Agile/Scrum methodologies</strong> across all SDLC phases. Adept at Release Ticket Management, E-commerce, Supply Chain, and Car Rental domains. Currently leading and mentoring cross-functional .NET teams at Infosys Limited.</p>
+        <p><strong>Azure Full-Stack Developer</strong> with <strong>8.2 years of experience</strong> building end-to-end cloud-native solutions &mdash; from responsive front-ends (Blazor, React, Angular) to scalable backend services (.NET / .NET Core, Web API, Microservices) hosted on Azure App Service, Azure Functions, and Azure Container Apps.</p>
+        <p>Skilled across the full Azure stack: <strong>Azure SQL Database &amp; Cosmos DB</strong> for data, <strong>API Management, Service Bus, Logic Apps &amp; Event Grid</strong> for integration, <strong>Key Vault &amp; Entra ID</strong> for security, and <strong>Azure DevOps, ARM/Bicep</strong> for CI/CD and infrastructure-as-code &mdash; all under <strong>strict PCI-DSS compliance</strong> for payment platforms.</p>
+        <p>Specialized in Artificial Intelligence on Azure &mdash; designing Microsoft Azure AI Solutions (AI-102) using Cognitive Services, NLP, computer vision, generative AI, and <strong>custom AI agents</strong> to automate context-aware workflows.</p>
+        <p>Highly experienced with <strong>Agile/Scrum methodologies</strong> across all SDLC phases. Currently leading and mentoring cross-functional .NET/Azure teams at Infosys Limited.</p>
       </div>
       <div class="about-highlights stagger-children reveal">
         <div class="highlight-card"><div class="hc-icon">&#127970;</div><div><div class="hc-label">Current Role</div><div class="hc-value">Technical Lead, Infosys Limited</div></div></div>
@@ -309,12 +354,14 @@
   <div class="container">
     <div class="section-header reveal"><p class="section-tag">02 / Expertise</p><h2 class="section-title">Technical Skills</h2><hr class="section-rule"/></div>
     <div class="skills-grid stagger-children">
-      <div class="skill-card"><div class="skill-card-title">&#129302; Artificial Intelligence</div><div class="skill-tags"><span class="skill-tag">Azure Cognitive Services</span><span class="skill-tag">Generative AI</span><span class="skill-tag">NLP</span><span class="skill-tag">Computer Vision</span><span class="skill-tag">Custom Agents</span><span class="skill-tag">GitHub Copilot</span><span class="skill-tag">MCP Server</span><span class="skill-tag">Microsoft Foundry</span></div></div>
+      <div class="skill-card featured"><div class="skill-card-title">&#9729; Azure Full-Stack Developer &mdash; Core Stack</div><div class="skill-tags"><span class="skill-tag">Azure App Service</span><span class="skill-tag">Azure Static Web Apps</span><span class="skill-tag">Azure Functions</span><span class="skill-tag">Azure SQL Database</span><span class="skill-tag">Azure Cosmos DB</span><span class="skill-tag">Azure Storage (Blob/Queue/Table)</span><span class="skill-tag">Azure API Management</span><span class="skill-tag">Azure Key Vault</span><span class="skill-tag">Azure Active Directory / Entra ID</span><span class="skill-tag">Azure Service Bus</span><span class="skill-tag">Azure Logic Apps</span><span class="skill-tag">Azure Event Grid</span><span class="skill-tag">Azure SignalR Service</span><span class="skill-tag">Azure Container Apps / AKS</span><span class="skill-tag">Azure CDN</span><span class="skill-tag">Azure Monitor &amp; App Insights</span><span class="skill-tag">ARM Templates &amp; Bicep</span><span class="skill-tag">Azure DevOps CI/CD</span></div></div>
+      <div class="skill-card featured"><div class="skill-card-title">&#128279; Integration Solutions Design &mdash; Azure Stack</div><div class="skill-tags"><span class="skill-tag">Azure API Management</span><span class="skill-tag">Azure Service Bus (Queues/Topics)</span><span class="skill-tag">Azure Logic Apps</span><span class="skill-tag">Azure Event Grid</span><span class="skill-tag">Azure Event Hubs</span><span class="skill-tag">Azure Data Factory</span><span class="skill-tag">Azure Functions (Triggers/Bindings)</span><span class="skill-tag">Hybrid Connections &amp; Azure Relay</span><span class="skill-tag">Enterprise Integration Patterns</span><span class="skill-tag">Pub/Sub &amp; Event-Driven Architecture</span><span class="skill-tag">REST / SOAP / WCF Integration</span><span class="skill-tag">Webhooks &amp; 3rd-Party API Integration</span><span class="skill-tag">PSP / ERP / DIS System Integration</span><span class="skill-tag">PCI-DSS Secure Integration</span></div></div>
+      <div class="skill-card"><div class="skill-card-title">&#129302; Artificial Intelligence</div><div class="skill-tags"><span class="skill-tag">Azure Cognitive Services</span><span class="skill-tag">Generative AI</span><span class="skill-tag">NLP</span><span class="skill-tag">Computer Vision</span><span class="skill-tag">Custom Agents</span><span class="skill-tag">Claude Code</span><span class="skill-tag">GitHub Copilot</span><span class="skill-tag">MCP Server</span><span class="skill-tag">Microsoft Foundry</span></div></div>
       <div class="skill-card"><div class="skill-card-title">&#128187; Languages &amp; Web</div><div class="skill-tags"><span class="skill-tag">C#</span><span class="skill-tag">C/C++</span><span class="skill-tag">Core Java</span><span class="skill-tag">Python</span><span class="skill-tag">TypeScript</span><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">JavaScript</span><span class="skill-tag">jQuery</span><span class="skill-tag">JSON</span><span class="skill-tag">AJAX</span></div></div>
       <div class="skill-card"><div class="skill-card-title">&#129513; Frameworks</div><div class="skill-tags"><span class="skill-tag">.NET 4.5&ndash;6</span><span class="skill-tag">ASP.NET MVC</span><span class="skill-tag">.NET Core 8 &amp; 10</span><span class="skill-tag">Blazor</span><span class="skill-tag">React JS</span><span class="skill-tag">Angular JS</span><span class="skill-tag">Bootstrap 5</span></div></div>
       <div class="skill-card"><div class="skill-card-title">&#9729; Cloud &amp; Architecture</div><div class="skill-tags"><span class="skill-tag">Microservices</span><span class="skill-tag">Azure Cloud</span><span class="skill-tag">Azure Functions</span><span class="skill-tag">Logic Apps</span><span class="skill-tag">Service Bus</span><span class="skill-tag">WCF</span><span class="skill-tag">Web API / OData</span><span class="skill-tag">IaC / Bicep</span></div></div>
       <div class="skill-card"><div class="skill-card-title">&#128452; Databases</div><div class="skill-tags"><span class="skill-tag">MS SQL</span><span class="skill-tag">Entity Framework</span><span class="skill-tag">Dapper</span><span class="skill-tag">LINQ</span><span class="skill-tag">ADO.NET</span><span class="skill-tag">PL/SQL</span></div></div>
-      <div class="skill-card"><div class="skill-card-title">&#128295; Tools &amp; Platforms</div><div class="skill-tags"><span class="skill-tag">Visual Studio</span><span class="skill-tag">VS Code</span><span class="skill-tag">SSMS</span><span class="skill-tag">Postman</span><span class="skill-tag">Azure DevOps</span><span class="skill-tag">Jira</span><span class="skill-tag">Confluence</span><span class="skill-tag">GitHub</span><span class="skill-tag">Android Studio</span></div></div>
+      <div class="skill-card"><div class="skill-card-title">&#128295; Tools &amp; Platforms</div><div class="skill-tags"><span class="skill-tag">Visual Studio</span><span class="skill-tag">VS Code</span><span class="skill-tag">Claude Code</span><span class="skill-tag">SSMS</span><span class="skill-tag">Postman</span><span class="skill-tag">Azure DevOps</span><span class="skill-tag">Jira</span><span class="skill-tag">Confluence</span><span class="skill-tag">GitHub</span><span class="skill-tag">Android Studio</span></div></div>
     </div>
   </div>
 </section>
@@ -323,7 +370,7 @@
   <div class="container">
     <div class="section-header reveal"><p class="section-tag">03 / Career</p><h2 class="section-title">Professional Experience</h2><hr class="section-rule"/></div>
     <div class="timeline">
-      <div class="tl-item"><div class="tl-dot"></div><div class="tl-role">Technical Lead</div><div class="tl-company">Infosys Limited</div><div class="tl-meta"><span>2023 &ndash; Present</span><span>Mohali</span></div><div class="tl-body"><ul><li>Led and mentored cross-functional .NET teams, driving code reviews, coding standards, and architectural best practices.</li><li>Spearheaded technical strategy and architectural decision-making &mdash; translating business requirements into scalable cloud solutions.</li><li>Designed and developed robust microservices and Web APIs in C# for highly scalable backend features.</li><li>Architected E2E integrations with Azure Functions, Logic Apps, and Service Bus.</li><li>Streamlined CI/CD pipelines using Azure DevOps, IaC, and Bicep templates.</li><li>Engineered payment orchestration middleware enabling multiple PSPs under strict PCI DSS compliance.</li><li>Orchestrated Agile/Scrum delivery, managing sprints and cross-team dependencies.</li><li>Conducted technical interviews for Infosys RCLADM unit talent acquisition.</li></ul></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-role">Technical Lead</div><div class="tl-company">Infosys Limited</div><div class="tl-meta"><span>2023 &ndash; Present</span><span>Mohali</span></div><div class="tl-body"><ul><li>Led and mentored cross-functional .NET teams, driving code reviews, coding standards, and architectural best practices.</li><li>Spearheaded technical strategy and architectural decision-making &mdash; translating business requirements into scalable cloud solutions.</li><li>Designed and developed robust microservices and Web APIs in C# for highly scalable backend features.</li><li>Architected end-to-end integration solutions across the Azure stack &mdash; using API Management, Service Bus, Logic Apps, and Event Grid to connect internal microservices with external payment, ERP, and PSP systems.</li><li>Streamlined CI/CD pipelines using Azure DevOps, IaC, and Bicep templates.</li><li>Engineered payment orchestration middleware enabling multiple PSPs under strict PCI DSS compliance.</li><li>Adopted Claude Code in action across the team &mdash; using it to scaffold microservices, accelerate code reviews, automate refactoring, and generate technical documentation, cutting routine development time significantly.</li><li>Orchestrated Agile/Scrum delivery, managing sprints and cross-team dependencies.</li><li>Conducted technical interviews for Infosys RCLADM unit talent acquisition.</li></ul></div></div>
       <div class="tl-item"><div class="tl-dot"></div><div class="tl-role">Senior Software Engineer</div><div class="tl-company">Volvsoft India Private Limited</div><div class="tl-meta"><span>Oct 2022 &ndash; Dec 2022</span><span>Mohali</span></div><div class="tl-body"><ul><li>Produced clean, efficient code for new tools and applications with rigorous testing and debugging.</li><li>Collaborated through the SDLC to ensure timely delivery of release cycles.</li><li>Handled comprehensive documentation and provided direct client support operations.</li></ul></div></div>
       <div class="tl-item"><div class="tl-dot"></div><div class="tl-role">Senior Software Developer</div><div class="tl-company">Berggruen Car Rental Private Limited</div><div class="tl-meta"><span>Nov 2021 &ndash; Oct 2022</span><span>New Delhi</span></div><div class="tl-body"><ul><li>Enhanced and maintained 3+ targeted .NET sites while eliminating code bugs across team projects.</li><li>Integrated critical payment gateways via APIs (BillDesk, Razorpay) and automated payment processes.</li><li>Implemented COFT tokenized payments and E-Mandate setups into the existing system framework.</li><li>Designed and published Windows Services and WCF services for third-party application communication.</li></ul></div></div>
       <div class="tl-item"><div class="tl-dot"></div><div class="tl-role">Senior Embedded Engineer</div><div class="tl-company">Montech Instruments</div><div class="tl-meta"><span>May 2021 &ndash; Oct 2021</span><span>Chandigarh</span></div><div class="tl-body"><ul><li>Executed analog design using OPAMPs and developed PCBs with Altium Designer.</li><li>Conducted R&amp;D on On-Board EV Chargers and developed capacitance measurement circuits.</li><li>Programmed microcontrollers in Embedded C (PIC, ARM, AVR architectures).</li></ul></div></div>
@@ -343,6 +390,7 @@
       <div class="flip-wrapper"><div class="flip-card"><div class="flip-front"><div class="pc-tag">B2B &middot; B2C &middot; E-Commerce</div><div class="pc-title">eCommerce B2B &amp; B2C Application</div><p class="pc-desc">Comprehensive e-commerce platform managing customer, distributor, and sales portals with microservices architecture integrated with DIS, PSP, and ERP platforms under PCI DSS compliance.</p><div class="flip-hint">Hover to flip</div></div><div class="flip-back"><div class="pc-tag">Tech Stack</div><div class="pc-title">eCommerce B2B &amp; B2C Application</div><p class="pc-desc">Engineered payment orchestration middleware, managed production deployments, and drove sprint execution as a core Scrum team member with cross-functional responsibilities.</p><div class="pc-stack"><span class="pc-pill">C#</span><span class="pc-pill">.NET Core</span><span class="pc-pill">Microservices</span><span class="pc-pill">Azure</span><span class="pc-pill">Hangfire</span><span class="pc-pill">TypeScript</span><span class="pc-pill">Angular</span><span class="pc-pill">PCI DSS</span></div></div></div></div>
       <div class="flip-wrapper"><div class="flip-card"><div class="flip-front"><div class="pc-tag">Internal &middot; Enterprise Suite</div><div class="pc-title">Accounts &amp; Release Ticket Management</div><p class="pc-desc">Internal enterprise suite: accounting software (.NET 5) and a JIRA-inspired Release Ticket Management system (ASP.NET Core 6, EF Code First) for tracking production builds.</p><div class="flip-hint">Hover to flip</div></div><div class="flip-back"><div class="pc-tag">Tech Stack</div><div class="pc-title">Accounts &amp; Release Ticket Management</div><p class="pc-desc">Built RESTful APIs with OData, maintained Azure DevOps CI/CD pipelines, and provided technical onboarding mentorship to incoming .NET developer interns.</p><div class="pc-stack"><span class="pc-pill">C#</span><span class="pc-pill">ASP.NET Core</span><span class="pc-pill">EF Core</span><span class="pc-pill">OData</span><span class="pc-pill">Blazor</span><span class="pc-pill">React JS</span><span class="pc-pill">Azure DevOps</span><span class="pc-pill">MS SQL</span></div></div></div></div>
       <div class="flip-wrapper"><div class="flip-card"><div class="flip-front"><div class="pc-tag">Car Rental &middot; Reservations</div><div class="pc-title">Car Rental Reservation System</div><p class="pc-desc">Core operational platform managing vehicle bookings, fleet maintenance, and customer interactions &mdash; integrated with internal financial modules and external payment gateways.</p><div class="flip-hint">Hover to flip</div></div><div class="flip-back"><div class="pc-tag">Tech Stack</div><div class="pc-title">Car Rental Reservation System</div><p class="pc-desc">Designed WCF services for secure third-party communication, integrated BillDesk &amp; Razorpay APIs, and implemented COFT tokenized payments and E-Mandate setups.</p><div class="pc-stack"><span class="pc-pill">C#</span><span class="pc-pill">ASP.NET Web Forms</span><span class="pc-pill">ADO.NET</span><span class="pc-pill">WCF</span><span class="pc-pill">BillDesk</span><span class="pc-pill">Razorpay</span><span class="pc-pill">Crystal Reports</span></div></div></div></div>
+      <div class="flip-wrapper"><div class="flip-card"><div class="flip-front"><div class="pc-tag">AI-Accelerated Engineering</div><div class="pc-title">Claude Code in Action &mdash; AI-Assisted Delivery</div><p class="pc-desc">Introduced Claude Code as an agentic coding assistant across the .NET delivery team to scaffold microservices, automate code reviews, and generate documentation &mdash; boosting sprint velocity and code quality.</p><div class="flip-hint">Hover to flip</div></div><div class="flip-back"><div class="pc-tag">Tech Stack</div><div class="pc-title">Claude Code in Action &mdash; AI-Assisted Delivery</div><p class="pc-desc">Used Claude Code for repo-aware refactoring, unit test generation, API documentation, and onboarding new developers faster &mdash; backed by Claude 101 and Generative AI certifications.</p><div class="pc-stack"><span class="pc-pill">Claude Code</span><span class="pc-pill">Claude 101</span><span class="pc-pill">GitHub Copilot</span><span class="pc-pill">.NET / C#</span><span class="pc-pill">Azure DevOps</span><span class="pc-pill">Agentic AI</span></div></div></div></div>
     </div>
   </div>
 </section>
@@ -371,6 +419,8 @@
       <div class="cert-card"><div class="cert-icon">&#129513;</div><div><div class="cert-name">.NET Microservices Developer Fundamentals</div><div class="cert-issuer">Infosys Certified</div></div></div>
       <div class="cert-card"><div class="cert-icon">&#127760;</div><div><div class="cert-name">Front End Web Developer</div><div class="cert-issuer">Infosys Certified</div></div></div>
       <div class="cert-card"><div class="cert-icon">&#128013;</div><div><div class="cert-name">Programming for Everybody (Python)</div><div class="cert-issuer">University of Michigan</div></div></div>
+      <div class="cert-card"><div class="cert-icon">&#127959;&#65039;</div><div><div class="cert-name">Certified Associate Architect &mdash; 101</div><div class="cert-issuer">Infosys Certified</div></div></div>
+      <div class="cert-card"><div class="cert-icon">&#129513;</div><div><div class="cert-name">Claude 101 &mdash; Agentic AI &amp; Claude Code</div><div class="cert-issuer">Anthropic / Infosys Certified</div></div></div>
     </div>
     <div style="margin-top:3rem">
       <div class="section-header reveal"><h3 class="section-title" style="font-size:1.5rem">Patents &amp; Publications</h3><hr class="section-rule"/></div>
@@ -410,19 +460,23 @@
   function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;}
   resize();window.addEventListener('resize',resize);
   for(let i=0;i<60;i++) pts.push({x:Math.random()*1400,y:Math.random()*900,vx:(Math.random()-.5)*.45,vy:(Math.random()-.5)*.45,r:Math.random()*1.7+.4,a:Math.random()*.3+.05});
+  function rgb(){
+    return document.documentElement.getAttribute('data-theme')==='dark' ? '125,178,255' : '0,112,243';
+  }
   function tick(){
     ctx.clearRect(0,0,W,H);
+    const c=rgb();
     pts.forEach(p=>{
       p.x+=p.vx;p.y+=p.vy;
       if(p.x<0)p.x=W;if(p.x>W)p.x=0;
       if(p.y<0)p.y=H;if(p.y>H)p.y=0;
       ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle='rgba(0,112,243,'+p.a+')';ctx.fill();
+      ctx.fillStyle='rgba('+c+','+p.a+')';ctx.fill();
     });
     for(let i=0;i<pts.length;i++){
       for(let j=i+1;j<pts.length;j++){
         const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);
-        if(d<130){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(0,112,243,'+(0.1*(1-d/130))+')';ctx.lineWidth=.6;ctx.stroke();}
+        if(d<130){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba('+c+','+(0.1*(1-d/130))+')';ctx.lineWidth=.6;ctx.stroke();}
       }
     }
     requestAnimationFrame(tick);
@@ -484,6 +538,20 @@ const co=new IntersectionObserver(entries=>{
   });
 },{threshold:.5});
 document.querySelectorAll('.counter').forEach(el=>co.observe(el));
+
+/* THEME TOGGLE */
+const themeBtn=document.getElementById('themeToggle');
+function syncThemeIcon(){
+  const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  themeBtn.textContent=dark?'\u2600\ufe0f':'\ud83C\udF19';
+  themeBtn.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');
+}
+syncThemeIcon();
+themeBtn.addEventListener('click',()=>{
+  const cur=document.documentElement.getAttribute('data-theme');
+  document.documentElement.setAttribute('data-theme',cur==='dark'?'light':'dark');
+  syncThemeIcon();
+});
 </script>
 </body>
 </html>
